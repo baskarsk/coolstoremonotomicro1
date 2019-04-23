@@ -45,7 +45,8 @@
         </fabric8.generator.from>
 
      <!--    <version.wildfly.swarm>7.0.0.redhat-8</version.wildfly.swarm> --> 
-     	<version.wildfly.swarm>2018.5.0</version.wildfly.swarm>
+     <!--  	<version.wildfly.swarm>2018.5.0</version.wildfly.swarm> --> 
+     	<version.thorntail>2.2.0.Final-redhat-00021</version.thorntail>
         <version.resteasy>3.0.19.Final</version.resteasy>
         <version.override.jackson>2.7.7</version.override.jackson>
 
@@ -58,13 +59,13 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
+      <!--       <dependency>
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>bom</artifactId>
                 <version>${version.wildfly.swarm}</version>
                 <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+                <scope>import</scope>  
+            </dependency> -->
      <!--        <dependency>
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>bom-certified</artifactId>
@@ -72,6 +73,20 @@
                 <type>pom</type>
                 <scope>import</scope>  
             </dependency> -->
+            
+             <dependency>
+                <groupId>io.thorntail</groupId>
+                <artifactId>bom</artifactId>
+                <version>${version.thorntail}</version>
+                <type>pom</type>               
+            </dependency>
+             <dependency>
+                <groupId>io.thorntail</groupId>
+                <artifactId>bom-certified</artifactId>
+                <version>${version.thorntail}</version>
+                <type>pom</type>  
+            </dependency>
+            
             <dependency>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric8-project-bom-with-platform-deps</artifactId>
@@ -87,7 +102,7 @@
 
 <!-- Add monitor fraction -->
 
-        <dependency>
+      <!--   <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>jaxrs</artifactId>
         </dependency>
@@ -106,7 +121,35 @@
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>datasources</artifactId>
+        </dependency> -->
+        
+          <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>jaxrs</artifactId>
+            <version>${version.thorntail}</version>
         </dependency>
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>cdi</artifactId>
+            <version>${version.thorntail}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>ejb</artifactId>
+            <version>${version.thorntail}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>jpa</artifactId>
+            <version>${version.thorntail}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>datasources</artifactId>
+            <version>${version.thorntail}</version>
+        </dependency>
+        
+        
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -122,7 +165,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.wildfly.swarm</groupId>
+               <!--  <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <version>${version.wildfly.swarm}</version>
                 <executions>
@@ -132,8 +175,18 @@
                             <goal>package</goal>
                         </goals>
                     </execution>
-                </executions>
-                <configuration>
+                </executions>  -->
+                 <groupid>io.thorntail</groupId>
+				  <artifactId>thorntail-maven-plugin</artifactId>
+				  <version>${version.thorntail}</version>
+				  <executions>
+				    <execution>
+				      <goals>
+				        <goal>package</goal>
+				      </goals>
+				    </execution>
+				  </executions>
+		           <configuration>
                     <jvmArguments>-Djava.net.preferIPv4Stack=true</jvmArguments>
                     <arguments>
                         <argument>-S</argument>
@@ -164,10 +217,17 @@
                         <configuration>
                             <generator>
                                 <includes>
-                                    <include>wildfly-swarm</include>
+                                    <include>io.thorntail</include>
                                 </includes>
                             </generator>
                         </configuration>
+                        <!-- <configuration>
+                            <generator>
+                                <includes>
+                                    <include>wildfly-swarm</include>
+                                </includes>
+                            </generator>
+                        </configuration>  -->
                     </plugin>
                 </plugins>
             </build>
