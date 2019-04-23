@@ -176,7 +176,7 @@
                         </goals>
                     </execution>
                 </executions>  -->
-                 <groupid>io.thorntail</groupId>
+                 <groupId>io.thorntail</groupId>
 				  <artifactId>thorntail-maven-plugin</artifactId>
 				  <version>${version.thorntail}</version>
 				  <executions>
