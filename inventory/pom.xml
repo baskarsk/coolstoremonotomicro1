@@ -222,7 +222,7 @@
                         <configuration>
                             <generator>
                                 <includes>
-                                    <include>thorntail</include>
+                                    <include>thorntail-v2</include>
                                 </includes>
                             </generator>
                         </configuration>
