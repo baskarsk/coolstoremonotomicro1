@@ -105,8 +105,6 @@
 
     <dependencies>
 
-<!-- Add monitor fraction -->
-
       <!--   <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>jaxrs</artifactId>
@@ -128,6 +126,13 @@
             <artifactId>datasources</artifactId>
         </dependency> -->
         
+        <!-- Add monitor fraction -->
+        <dependency>
+		    <groupId>io.thorntail</groupId>
+		    <artifactId>microprofile-health</artifactId>
+		    <version>${version.thorntail}</version>
+		</dependency>
+
           <dependency>
             <groupId>io.thorntail</groupId>
             <artifactId>jaxrs</artifactId>
@@ -222,7 +227,7 @@
                         <configuration>
                             <generator>
                                 <includes>
-                                    <include>thorntail</include>
+                                    <include>thorntail-v2</include>
                                 </includes>
                             </generator>
                         </configuration>
