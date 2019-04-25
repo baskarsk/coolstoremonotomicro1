@@ -46,8 +46,12 @@
 
      <!--    <version.wildfly.swarm>7.0.0.redhat-8</version.wildfly.swarm> --> 
      <!--  	<version.wildfly.swarm>2018.5.0</version.wildfly.swarm> --> 
+
      <!-- 	<version.thorntail>2.2.0.Final-redhat-00021</version.thorntail>  -->
      	<version.thorntail>2.4.0.Final</version.thorntail>
+
+     	<!-- <version.thorntail>2.2.0.Final</version.thorntail>  -->
+
         <version.resteasy>3.0.19.Final</version.resteasy>
         <version.override.jackson>2.7.7</version.override.jackson>
 
@@ -177,7 +181,7 @@
                         </goals>
                     </execution>
                 </executions>  -->
-                 <groupid>io.thorntail</groupId>
+                 <groupId>io.thorntail</groupId>
 				  <artifactId>thorntail-maven-plugin</artifactId>
 				  <version>${version.thorntail}</version>
 				  <executions>
