@@ -20,7 +20,7 @@ public class InventoryService {
 	    }
 
 	    public boolean isAlive(){
-	    	  return em.createQuery("select 1 from Inventory i")
+	    	  return em.createQuery("Select 1 from Inventory i")
 	                  .setMaxResults(1)
 	                  .getResultList().size() == 1;
 	    }
@@ -30,8 +30,9 @@ public class InventoryService {
 	    }
 	    
 	    public List<Inventory> getAllInventory() {
-	        Query query = em.createQuery("SELECT i FROM Inventory i");
-	        return query.getResultList();
+	        Query query = em.createQuery("Select i from Inventory i");
+	        List<Inventory> inventoryList = query.getResultList(); 
+	        return inventoryList;
 	    }
 	    
 }
